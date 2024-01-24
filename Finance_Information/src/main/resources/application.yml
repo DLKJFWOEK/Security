@@ -21,7 +21,3 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true 
-  mvc:        # jsp 사용을 위한 필수 설정, WEB-INF 폴더 직접 만들고, pom.xml에 설정, ProbonoController의 메소드 setViewName()확인하기
-    view:
-      prefix: /WEB-INF/
-      suffix: .jsp
