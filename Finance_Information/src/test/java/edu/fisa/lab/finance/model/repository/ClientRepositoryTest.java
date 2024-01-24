@@ -24,7 +24,7 @@ public class ClientRepositoryTest {
 
 	@PersistenceContext
 	EntityManager entityManager;
-	
+
 	private Client client;
 
 	@BeforeEach
