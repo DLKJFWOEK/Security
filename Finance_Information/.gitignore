@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+Finance_Information/src/main/resources/application.yml
+*.yml

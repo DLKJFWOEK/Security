@@ -1,0 +1,16 @@
+package edu.fisa.lab.finance.model.repository;
+
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+@DataJpaTest
+public class ClientRepositoryTest {
+	
+	@Atuowired
+	private ClientRepository clientRepository;
+	
+	@Test
+	public void testFindById() {
+		
+		Client
+	}
+}
