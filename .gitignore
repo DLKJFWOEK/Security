@@ -1,3 +1,5 @@
 /.metadata/
 *.yml
 Finance_Information/src/main/resources/application.yml
+Finance_Information/src/main/resources/application.yml
+*.yml
