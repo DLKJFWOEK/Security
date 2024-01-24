@@ -3,6 +3,7 @@ package edu.fisa.lab.finance.model.repository;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -23,13 +24,12 @@ public class ClientRepositoryTest {
 
 	@PersistenceContext
 	EntityManager entityManager;
-
-
+	
 	private Client client;
 
 	@BeforeEach
 	void setUp(){
-		//given
+
 		client =Client.builder()
 			.name("이강진")
 			.id("frog4821").password("securepassword")
@@ -38,13 +38,13 @@ public class ClientRepositoryTest {
 
 	}
 
-	
+
+	@DisplayName("회원 저장 테스트")
 	@Test
 	void testFindById() {
 
 		//given
 		entityManager.persist(client);
-
 
 
 		//when
