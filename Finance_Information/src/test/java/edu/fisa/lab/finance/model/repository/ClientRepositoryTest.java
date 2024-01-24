@@ -1,38 +1,58 @@
 package edu.fisa.lab.finance.model.repository;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Optional;
-
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 
 import edu.fisa.lab.finance.model.entity.Client;
-
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 @DataJpaTest
-@Sql({"/data.sql"})
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class ClientRepositoryTest {
 	
 	@Autowired
 	private ClientRepository clientRepository;
+
+	@PersistenceContext
+	EntityManager entityManager;
+
+
+	private Client client;
+
+	@BeforeEach
+	void setUp(){
+		//given
+		client =Client.builder()
+			.name("이강진")
+			.id("frog4821").password("securepassword")
+			.build();
+
+
+	}
+
 	
 	@Test
-	public void testFindById() {
-		
-		Client client = new Client();
-		client.setName("이강진");
-		client.setId("frog4821");
-		client.setPassword("securepassword");
-		clientRepository.save(client);
-		
-		Optional<Client> foundClient = clientRepository.findById("이강진");
-		
-		assertTrue(foundClient.isPresent());
-		assertEquals("이강진", foundClient.get().getName());
+	void testFindById() {
+
+		//given
+		entityManager.persist(client);
+
+
+
+		//when
+		Client savedClient = clientRepository.save(client);
+
+
+		//then
+		Assertions.assertThat(savedClient.getId()).isEqualTo(1L);
 		
 	}
 }

@@ -1,4 +1,4 @@
-package edu.fisa.lab.finance.model.security;
+package edu.fisa.lab.finance.security;
 
 import java.io.IOException;
 

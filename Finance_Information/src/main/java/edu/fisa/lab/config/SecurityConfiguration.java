@@ -1,4 +1,4 @@
-package edu.fisa.lab.finance.model;
+package edu.fisa.lab.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 //import org.springframework.security.web.access.AccessDeniedHandler;
 
-import edu.fisa.lab.finance.model.security.CustomAccessDeniedHandler;
+import edu.fisa.lab.finance.security.CustomAccessDeniedHandler;
 
 @Configuration
 public class SecurityConfiguration {
