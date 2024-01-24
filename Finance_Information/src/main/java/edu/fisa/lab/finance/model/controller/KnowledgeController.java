@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.fisa.lab.finance.model.KnowledgeService;
 import edu.fisa.lab.finance.model.dto.KnowledgeDto;
+import edu.fisa.lab.finance.model.service.KnowledgeService;
 
 @Controller
 public class KnowledgeController {

@@ -1,4 +1,4 @@
-package edu.fisa.lab.finance.model;
+package edu.fisa.lab.finance.model.service;
 
 import java.util.List;
 import java.util.Optional;

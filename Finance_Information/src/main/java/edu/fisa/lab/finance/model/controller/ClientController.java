@@ -7,8 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
-import edu.fisa.lab.finance.model.ClientService;
+
 import edu.fisa.lab.finance.model.dto.ClientDto;
+import edu.fisa.lab.finance.model.service.ClientService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

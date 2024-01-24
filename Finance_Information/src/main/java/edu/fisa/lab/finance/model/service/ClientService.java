@@ -1,4 +1,4 @@
-package edu.fisa.lab.finance.model;
+package edu.fisa.lab.finance.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

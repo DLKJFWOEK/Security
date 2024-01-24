@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.fisa.lab.finance.model.ClientService;
 import edu.fisa.lab.finance.model.dto.RegistrationRequest;
+import edu.fisa.lab.finance.model.service.ClientService;
 
 @RestController
 @RequestMapping("/api/auth")
