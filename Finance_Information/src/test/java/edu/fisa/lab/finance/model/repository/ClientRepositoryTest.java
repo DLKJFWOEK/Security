@@ -12,6 +12,8 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import edu.fisa.lab.finance.model.entity.Client;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 @WebAppConfiguration
 @DataJpaTest
@@ -22,12 +24,10 @@ public class ClientRepositoryTest {
 	@Autowired
 	private ClientRepository clientRepository;
 
-<<<<<<< HEAD
-=======
+
 	@PersistenceContext
 	EntityManager entityManager;
 
->>>>>>> f614eab504585330388e57f69320f689de2390d2
 	private Client client;
 
 	@BeforeEach
