@@ -11,7 +11,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import edu.fisa.lab.finance.model.entity.Client;
+import edu.fisa.lab.finance.client.domain.entity.Client;
+import edu.fisa.lab.finance.client.repository.ClientRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 

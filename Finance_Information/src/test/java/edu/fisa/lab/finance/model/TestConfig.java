@@ -5,8 +5,8 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import edu.fisa.lab.finance.model.repository.ClientRepository;
-import edu.fisa.lab.finance.model.service.ClientService;
+import edu.fisa.lab.finance.client.repository.ClientRepository;
+import edu.fisa.lab.finance.client.service.ClientService;
 
 @TestConfiguration
 public class TestConfig {

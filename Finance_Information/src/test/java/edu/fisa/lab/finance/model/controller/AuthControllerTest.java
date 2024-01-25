@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import edu.fisa.lab.finance.model.TestConfig;
 import edu.fisa.lab.finance.model.dto.RegistrationRequest;
-import edu.fisa.lab.finance.model.service.ClientService;
+import edu.fisa.lab.finance.client.service.ClientService;
 
 
 @ContextConfiguration(classes = TestConfig.class)

@@ -1,4 +1,4 @@
-package edu.fisa.lab.finance.model.entity;
+package edu.fisa.lab.finance.client.domain.entity;
 
 
 
@@ -28,16 +28,16 @@ public class Client {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "c_no")
-	private Long clientNo;  //client_no  | jpa  clientNO
+	@Column(name = "client_id")
+	private Long clientId;  //client_no  | jpa  clientNO
 	
 	@NotBlank
 	@Size(max = 10)
 	private String name;
-	
+
 	@NotBlank
 	@Size(max = 10)
-	private String id;
+	private String loginId;
 	
 	@NotBlank
 	@Size(max = 20)

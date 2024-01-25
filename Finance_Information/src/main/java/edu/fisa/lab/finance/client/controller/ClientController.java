@@ -1,4 +1,4 @@
-package edu.fisa.lab.finance.model.controller;
+package edu.fisa.lab.finance.client.controller;
 
 import java.io.IOException;
 
@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import edu.fisa.lab.finance.model.dto.ClientDto;
-import edu.fisa.lab.finance.model.service.ClientService;
+import edu.fisa.lab.finance.client.domain.dto.ClientDto;
+import edu.fisa.lab.finance.client.service.ClientService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

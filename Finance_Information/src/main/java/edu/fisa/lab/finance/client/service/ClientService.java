@@ -1,4 +1,4 @@
-package edu.fisa.lab.finance.model.service;
+package edu.fisa.lab.finance.client.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -7,9 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import edu.fisa.lab.finance.model.dto.ClientDto;
-import edu.fisa.lab.finance.model.entity.Client;
-import edu.fisa.lab.finance.model.repository.ClientRepository;
+import edu.fisa.lab.finance.client.domain.dto.ClientDto;
+import edu.fisa.lab.finance.client.domain.entity.Client;
+import edu.fisa.lab.finance.client.repository.ClientRepository;
 
 @Service
 public class ClientService {
@@ -34,7 +34,7 @@ public class ClientService {
 		
 		Client newClient = new Client();
 		newClient.setName(name);
-		newClient.setId(id);
+		newClient.setLoginId(id);
 		newClient.setPassword(passwordEncoder.encode(password));
 		
 		clientRepository.save(newClient);
@@ -47,7 +47,7 @@ public class ClientService {
 		
 		Client c = clientDto.toEntity(clientDto);
 		clientRepository.save(c);
-		return c.getClientNo();
+		return c.getClientId();
 	}
 	
 	@ExceptionHandler
