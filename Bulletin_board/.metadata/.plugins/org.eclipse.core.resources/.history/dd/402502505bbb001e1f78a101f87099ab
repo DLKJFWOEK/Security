@@ -1,0 +1,5 @@
+package edu.fisa.board.repository;
+
+public interface BoardPostRepository {
+
+}

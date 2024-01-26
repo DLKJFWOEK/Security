@@ -1,0 +1,22 @@
+package edu.fisa.board.controller;
+
+import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+public class LoginController {
+
+//    @GetMapping("/login")
+//    public String showLoginForm() {
+//        return "login";
+//    }
+
+    // 이 메서드는 실제로 로그인을 처리하게 됩니다.
+    @PostMapping("/login")
+    public String login() {
+        // 로그인 처리 로직을 여기에 추가
+    	// 로그인 성공 시에만 리디렉션 수행
+        return "redirect:/board/list"; // 로그인 성공 후의 경로
+    }
+}

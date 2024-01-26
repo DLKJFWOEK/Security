@@ -1,0 +1,14 @@
+package edu.fisa.board.service;
+
+import java.util.List;
+
+import edu.fisa.board.entity.BoardPost;
+
+public class BoardPostService {
+	
+	List<BoardPost> getAllPosts();
+
+    BoardPost getPostById(Long postId);
+
+    void savePost(BoardPost post);
+}

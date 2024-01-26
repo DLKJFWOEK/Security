@@ -1,0 +1,5 @@
+package edu.fisa.board.service;
+
+public class BoardPostServiceImpl {
+
+}
