@@ -1,5 +1,0 @@
-package edu.fisa.board.config;
-
-public class SecurityConfig {
-
-}

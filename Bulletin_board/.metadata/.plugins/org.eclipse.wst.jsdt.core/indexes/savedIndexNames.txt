@@ -1,9 +1,0 @@
-INDEX VERSION 1.4+C:\Users\user\Desktop\우리fisa 강의내용\프로젝트 모음\Bulletin_board\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-499295873.index
-109411221.index
-2431955617.index
-3840325200.index
-1787197235.index
-2166693937.index
-1230625248.index
-3535059940.index
