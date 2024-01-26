@@ -1,7 +1,10 @@
 package edu.fisa.lab.finance.config;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -13,6 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import edu.fisa.lab.finance.security.filter.JsonAuthenticationFilter;
 import edu.fisa.lab.finance.security.filter.JwtOncePerRequestFilter;
+import edu.fisa.lab.finance.security.provider.JwtAuthenticationProvider;
 
 @Configuration
 public class SecurityConfig {
@@ -21,13 +25,13 @@ public class SecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
 		http.formLogin(AbstractHttpConfigurer::disable);
-
+		http.authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
 		http.addFilterAt(jsonAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
 			.addFilterBefore(jwtOncePerRequestFilter(),UsernamePasswordAuthenticationFilter.class)
 
 		;
 
-        return http.build();	
+        return http.build();
 	}
 
 	@Bean
@@ -35,9 +39,16 @@ public class SecurityConfig {
 
 		JsonAuthenticationFilter jsonAuthenticationFilter = new JsonAuthenticationFilter();
 
-		jsonAuthenticationFilter.setAuthenticationManager(new ProviderManager());
+		jsonAuthenticationFilter.setAuthenticationManager(new ProviderManager(jwtAuthenticationProvider()));
 		return jsonAuthenticationFilter;
 
+	}
+
+
+	@Bean
+	public AuthenticationProvider jwtAuthenticationProvider() {
+
+		return new JwtAuthenticationProvider();
 	}
 
 	@Bean

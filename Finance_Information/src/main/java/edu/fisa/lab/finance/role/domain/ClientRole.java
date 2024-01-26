@@ -36,11 +36,10 @@ public class ClientRole {
 	private Client client;
 
 
-	@MapsId
+	@MapsId("roleId")
 	@JoinColumn(name = "role_id")
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Role role;
-
 
 
 	@EqualsAndHashCode
@@ -49,6 +48,7 @@ public class ClientRole {
 	@Getter
 	@Builder
 	public static class Pk implements Serializable {
+
 		@Column(name = "client_id")
 		private Long clientId;
 

@@ -11,7 +11,6 @@ import edu.fisa.lab.finance.client.domain.entity.Client;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long>{
-	Optional<Client> findById(String id);
 
 	Optional<Client> findByLoginId(String loginId);
 }

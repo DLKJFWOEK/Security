@@ -5,12 +5,10 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import edu.fisa.lab.finance.client.domain.entity.Client;
-import edu.fisa.lab.finance.role.domain.Role;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -67,17 +65,17 @@ public class CustomUserDetails implements UserDetails {
 
 	public String getName(){
 
-		return this.name
+		return this.name;
 	}
-	private Collection<GrantedAuthority> getGrantedAuthorities() {
-		Collection<GrantedAuthority>  authorities = new ArrayList<>();
-
-		for (Role role : roles) {
-			authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
-
-		}
-		return authorities;
-
-	}
+	// private Collection<GrantedAuthority> getGrantedAuthorities() {
+	// 	Collection<GrantedAuthority>  authorities = new ArrayList<>();
+	//
+	// 	for (Role role : roles) {
+	// 		authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
+	//
+	// 	}
+	// 	return authorities;
+	//
+	// }
 
 }

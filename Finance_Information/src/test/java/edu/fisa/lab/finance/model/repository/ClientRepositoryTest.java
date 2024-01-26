@@ -35,7 +35,7 @@ public class ClientRepositoryTest {
 	void setUp(){
 		client =Client.builder()
 			.name("이강진")
-			.id("frog4821")
+			.loginId("frog4821")
 			.password("securepassword")
 			.build();
 	}
@@ -53,9 +53,9 @@ public class ClientRepositoryTest {
 
 		//then
 
-		Assertions.assertThat(savedClient.getId()).isNotNull(); // 저장 후 ID가 null이 아닌지 확인
+		Assertions.assertThat(savedClient.getLoginId()).isNotNull(); // 저장 후 ID가 null이 아닌지 확인
 
-		Assertions.assertThat(savedClient.getClientNo()).isEqualTo(1L);
+		Assertions.assertThat(savedClient.getClientId()).isEqualTo(1L);
 
 		
 	}

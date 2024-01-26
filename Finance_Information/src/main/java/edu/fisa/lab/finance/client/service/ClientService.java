@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import edu.fisa.lab.finance.client.domain.dto.ClientDto;
 import edu.fisa.lab.finance.client.domain.entity.Client;
 import edu.fisa.lab.finance.client.repository.ClientRepository;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Service
 public class ClientService {
 
-	@Autowired
 	private ClientRepository clientRepository;
-	
-	@Autowired
+
 	private PasswordEncoder passwordEncoder;
 	
 	
@@ -27,14 +27,14 @@ public class ClientService {
 		
 	}
 	
-	public void registerClient(String name, String id, String password) {
-		if(clientRepository.findById(id).isPresent()) {
+	public void registerClient(String name, String loginId, String password) {
+		if(clientRepository.findByLoginId(loginId).isPresent()) {
 			throw new IllegalArgumentException("이미 등록된 아이디입니다.");
 		}
 		
 		Client newClient = new Client();
 		newClient.setName(name);
-		newClient.setLoginId(id);
+		newClient.setLoginId(loginId);
 		newClient.setPassword(passwordEncoder.encode(password));
 		
 		clientRepository.save(newClient);
