@@ -25,3 +25,12 @@ spring:
     view:
       prefix: /WEB-INF/
       suffix: .jsp
+
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+    view-names: /*
+   
