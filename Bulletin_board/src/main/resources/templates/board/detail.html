@@ -84,8 +84,30 @@
     <br/>
     <div>
         <button class="button-23"><a th:href="@{'/board/edit/' + ${post.id}}">수정하기</a></button>
-        <button class="button-23"><a th:href="@{'/board/delete/' + ${post.id}}">삭제하기</a></button>
+<!--        <button class="button-23" id="deleteBtn" click="confirmDelete()"><a th:href="@{'/board/delete/' + ${post.id}}">삭제하기</a></button>-->
+        <button class="button-23" id="deleteBtn" onclick="confirmDelete()">삭제하기</button>
         <button class="button-23"><a th:href="@{'/board/list'}">게시글 목록</a></button>
     </div>
+    <div>
+        <form method="post" th:action="@{'/board/delete/' + ${postId}}" th:object="${post}" id="deleteForm">
+            <input type="hidden" th:value="${post.id}"/>
+        </form>
+    </div>
+    <script>
+        const deleteBtn = document.getElementById("deleteBtn")
+        const deleteForm = document.getElementById("deleteForm")
+
+        function confirmDelete() {
+            let =response = confirm("정말 삭제하시겠습니까?")
+            if(response){
+                submitDel()
+                alert("삭제되었습니다")
+            }
+        }
+        function submitDel() {
+            deleteForm.submit()
+        }
+
+    </script>
 </body>
 </html>
