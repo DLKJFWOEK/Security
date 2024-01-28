@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Write Post</title>
+    <title>Edit Post</title>
 </head>
 <body>
-    <h1>게시글 작성</h1>
-    <form method="post" th:object="${post}" th:action="@{/board/write}">
+    <h1>게시글 수정</h1>
+    <form method="post" th:object="${post}" th:action="@{/board/edit}">
+        <input type="hidden" th:field="*{id}"/> <!-- 게시글 ID를 숨겨 전달 -->
         <label for="nickname">닉네임:</label>
         <input type="text" id="nickname" th:field="*{nickname}" required/>
         <br/>
@@ -16,8 +17,8 @@
         <label for="content">내용:</label>
         <textarea id="content" th:field="*{content}" required></textarea>
         <br/>
-        <button type="submit">작성완료</button>
-        <a th:href="@{'/board/list'}">게시글 목록</a>
+        <button type="submit">수정완료</button>
+        <a th:href="@{'/board/detail/' + ${post.id}}">취소</a>
     </form>
 </body>
 </html>

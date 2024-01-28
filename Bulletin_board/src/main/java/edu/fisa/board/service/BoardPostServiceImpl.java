@@ -30,4 +30,21 @@ public class BoardPostServiceImpl implements BoardPostService{
     public void savePost(BoardPost post) {
         postRepository.save(post);
     }
+    
+    @Override
+    public void updatePost(BoardPost post) {
+    	//게시글 수정 기능 구현
+    	BoardPost existingPost = postRepository.findById(post.getId()).orElse(null);
+    	if (existingPost != null) {
+            existingPost.setTitle(post.getTitle());
+            existingPost.setContent(post.getContent());
+            existingPost.setNickname(post.getNickname());
+            postRepository.save(existingPost);
+        }
+    }
+    
+    @Override
+    public void deletePostById(Long postId) {
+        postRepository.deleteById(postId);
+    }
 }

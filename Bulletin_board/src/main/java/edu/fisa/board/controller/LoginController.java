@@ -15,32 +15,21 @@ public class LoginController {
 	@Autowired
 	private AuthenticationService authenticationService;
 	
-	//templates 폴더 하위의 html은 반드시 spring controller 통해 이동
-	//templates/*.html : url에서 직접 html로 직접 호출 불가
-	//templates 폴더는 spring 타임립 처리 엔진이 인식하고 실행
     @GetMapping("/login")
     public String showLoginForm() {
-        return "login"; //templates/login2.html 
+        return "login"; 
     }
 
-    // 이 메서드는 실제로 로그인을 처리하게 됩니다.
-//    @PostMapping("/login")
-//    public String login(Model model) {
-//        // 로그인 처리 로직을 여기에 추가
-//    	// 로그인 성공 시에만 리디렉션 수행
-//        return "redirect:/board/list"; // 로그인 성공 후의 경로
-//    }
-    
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password, Model model){
     	System.out.println("0000 ---  " + username + " " + password);
-    	// 사용자 자격 증명 검증 로직
+    	
     	if(authenticationService.isValidCredentials(username, password)) {
-    		//로그인 성공
+    		
     		System.out.println("++++++++++++++");
-    		return "/board/header";   //?
+    		return "redirect:/board/list";   
         } else {
-            // 로그인 실패 시 로그인 페이지로 이동
+            
             model.addAttribute("error", "자격 증명에 실패하였습니다.");
             return "login";
         }

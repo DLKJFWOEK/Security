@@ -1,6 +1,6 @@
 package edu.fisa.board.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,11 +22,11 @@ public class BoardPost {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	private String nickname;
+	
     private String title;
 
     private String content;
 
-    private LocalDateTime createdDate;
-
-    // Getter, Setter, Constructor 등 필요한 메소드 추가
+    private LocalDate createdDate;
 }

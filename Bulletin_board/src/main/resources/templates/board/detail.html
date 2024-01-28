@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Board Detail</title>
+</head>
+<body>
+    <h1>상세내용</h1>
+    <div>
+        <p>글번호: <span th:text="${post.id}"></span></p>
+        <p>닉네임: <span th:text="${post.nickname}"></span></p>
+        <p>제목: <span th:text="${post.title}"></span></p>
+        <p>작성일: <span th:text="${post.createdDate}"></span></p>
+        <p>내용: <span th:text="${post.content}"></span></p>
+    </div>
+    <div>
+        <a th:href="@{'/board/edit/' + ${post.id}}">수정하기</a>
+        <a th:href="@{'/board/delete/' + ${post.id}}">삭제하기</a>
+    	<a th:href="@{'/board/list'}">게시글 목록</a>
+    </div>
+</body>
+</html>

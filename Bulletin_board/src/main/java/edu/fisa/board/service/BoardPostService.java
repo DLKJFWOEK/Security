@@ -11,4 +11,9 @@ public interface BoardPostService {
     BoardPost getPostById(Long postId);
 
     void savePost(BoardPost post);
+    
+    void updatePost(BoardPost post);
+    
+    void deletePostById(Long postId);
+    
 }
