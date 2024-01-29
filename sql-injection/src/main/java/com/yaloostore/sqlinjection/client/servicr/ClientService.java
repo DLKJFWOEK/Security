@@ -20,4 +20,7 @@ public class ClientService {
 
         return dto.getLoginId().equals(loginId) && dto.getPwd().equals(pwd);
     }
+
+
+
 }

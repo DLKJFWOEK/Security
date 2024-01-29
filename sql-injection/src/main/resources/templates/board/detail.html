@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <style>
+        * {
+        box-sizing: border-box;
+        font-family: 'Gowun Dodum', sans-serif;
+    }
+
+    body {
+        background: #f6f5f7;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    /* CSS */
+    .button-23 {
+      background-color: #FFFFFF;
+      border: 1px solid #222222;
+      border-radius: 8px;
+      box-sizing: border-box;
+      color: #222222;
+      cursor: pointer;
+      display: inline-block;
+      font-size: 18px;
+      line-height: 20px;
+      margin: 0;
+      outline: none;
+      padding: 10px 20px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      touch-action: manipulation;
+      transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .button-23:focus-visible {
+      box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+      transition: box-shadow .2s;
+    }
+
+    .button-23:active {
+      background-color: #F7F7F7;
+      border-color: #000000;
+      transform: scale(.96);
+    }
+
+    .button-23:disabled {
+      border-color: #DDDDDD;
+      color: #DDDDDD;
+      cursor: not-allowed;
+      opacity: 1;
+    }
+
+    #detail {
+      background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      padding: .35em 25px 0 25px;
+      width: 50%;
+    }
+</style>
+    <meta charset="UTF-8"/>
+    <title>Board Detail</title>
+</head>
+<body>
+    <h1>상세내용</h1>
+    <div id="detail">
+        <p>글번호: <span th:text="${post.id}"></span></p>
+        <p>닉네임: <span th:text="${post.nickname}"></span></p>
+        <p>제목: <span th:text="${post.title}"></span></p>
+        <p>작성일: <span th:text="${post.createdDate}"></span></p>
+        <p><span th:text="${post.content}"></span></p>
+    </div>
+    <br/>
+    <div>
+        <button class="button-23"><a th:href="@{'/board/edit/' + ${post.id}}">수정하기</a></button>
+<!--        <button class="button-23" id="deleteBtn" click="confirmDelete()"><a th:href="@{'/board/delete/' + ${post.id}}">삭제하기</a></button>-->
+        <button class="button-23" id="deleteBtn" onclick="confirmDelete()">삭제하기</button>
+        <button class="button-23"><a th:href="@{'/board/list'}">게시글 목록</a></button>
+    </div>
+    <div>
+        <form method="post" th:action="@{'/board/delete/' + ${postId}}" th:object="${post}" id="deleteForm">
+            <input type="hidden" th:value="${post.id}"/>
+        </form>
+    </div>
+    <script>
+        const deleteBtn = document.getElementById("deleteBtn")
+        const deleteForm = document.getElementById("deleteForm")
+
+        function confirmDelete() {
+            let =response = confirm("정말 삭제하시겠습니까?")
+            if(response){
+                submitDel()
+                alert("삭제되었습니다")
+            }
+        }
+        function submitDel() {
+            deleteForm.submit()
+        }
+
+    </script>
+</body>
+</html>

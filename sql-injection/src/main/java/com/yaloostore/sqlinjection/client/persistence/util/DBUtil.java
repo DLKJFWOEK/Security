@@ -16,8 +16,8 @@ public class DBUtil {
     // 접속 객체 반환
     public static Connection getConnection() throws SQLException {
 
-        return DriverManager.getConnection("jdbc:mysql://127.0.0.1:8777/fisa?useSSL=false&allowPublicKeyRetrieval=true",
-                "user01", "user01");
+        return DriverManager.getConnection("jdbc:mysql://localhost:3306/fisasecurity?useSSL=false&allowPublicKeyRetrieval=true",
+                "root", "root");
 
     }
 

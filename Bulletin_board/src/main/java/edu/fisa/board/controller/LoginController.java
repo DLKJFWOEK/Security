@@ -8,17 +8,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.fisa.board.service.AuthenticationService;
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequiredArgsConstructor
 public class LoginController {
 
-	@Autowired
-	private AuthenticationService authenticationService;
-	
+
+
+	private final AuthenticationService authenticationService;
+
     @GetMapping("/login")
     public String showLoginForm() {
-        return "login"; 
+        return "login";
     }
+
+
 
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password, Model model){
@@ -26,8 +31,7 @@ public class LoginController {
     	
     	if(authenticationService.isValidCredentials(username, password)) {
     		
-    		System.out.println("++++++++++++++");
-    		return "redirect:/board/list";   
+    		return "redirect:/board/list";
         } else {
             
             model.addAttribute("error", "자격 증명에 실패하였습니다.");

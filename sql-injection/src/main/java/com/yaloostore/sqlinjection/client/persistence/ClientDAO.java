@@ -31,17 +31,19 @@ public class ClientDAO {
 
             con = DBUtil.getConnection();
 
-            String query = "SELECT * FROM clients WHERE login_id = '" + loginId + "'";
+            String query = "SELECT * FROM client WHERE login_id = '" + loginId + "'";
             stmt = con.createStatement();
+
+
 
             ResultSet resultSet = stmt.executeQuery(query);
 
             if (resultSet.next()){
                 client = new ClientDTO();
 
-                client.setClientId(resultSet.getLong("clinet_id"));
+                client.setClientId(resultSet.getLong("client_id"));
                 client.setLoginId(resultSet.getString("login_id"));
-                client.setPwd(resultSet.getString("pwd"));
+                client.setPwd(resultSet.getString("password"));
 
             }
 
