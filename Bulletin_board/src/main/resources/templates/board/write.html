@@ -87,6 +87,22 @@
 </head>
 <body>
     <h1>게시글 작성</h1>
+<<<<<<< HEAD
+    <form method="post" th:object="${post}" th:action="@{/board/write}" enctype="multipart/form-data">
+        <label for="nickname">닉네임:</label>
+        <input type="text" id="nickname" th:field="*{nickname}" required/>
+        <br/>
+        <label for="title">제목:</label>
+        <input type="text" id="title" th:field="*{title}" required/>
+        <br/>
+        <label for="content">내용:</label>
+        <textarea id="content" th:field="*{content}" required></textarea>
+        <br/>
+        <button type="submit">작성완료</button>
+        <a th:href="@{'/board/list'}">게시글 목록</a>
+    	<a th:href="@{/board/uploadfile}">파일 업로드</a>
+    </form>
+=======
         <form method="post" th:object="${post}" th:action="@{/board/write}" >
 
 
@@ -100,9 +116,11 @@
             <div id="buttons">
                 <button class="button-23" type="submit">작성완료</button>
                 <button class="button-23"><a th:href="@{'/board/list'}">게시글 목록</a></button>
+                <a th:href="@{/board/uploadfile}">파일 업로드</a>
             </div>
 
         </form>
 
+>>>>>>> 3c4528a62511e4f3cefe4df2ff68348612a4dd0a
 </body>
 </html>

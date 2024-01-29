@@ -29,4 +29,6 @@ public class BoardPost {
     private String content;
 
     private LocalDate createdDate;
+    
+    private String fileName;
 }
