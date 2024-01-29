@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>게시글 작성</h1>
-    <form method="post" th:object="${post}" th:action="@{/board/write}">
+    <form method="post" th:object="${post}" th:action="@{/board/write}" enctype="multipart/form-data">
         <label for="nickname">닉네임:</label>
         <input type="text" id="nickname" th:field="*{nickname}" required/>
         <br/>
@@ -18,6 +18,7 @@
         <br/>
         <button type="submit">작성완료</button>
         <a th:href="@{'/board/list'}">게시글 목록</a>
+    	<a th:href="@{/board/uploadfile}">파일 업로드</a>
     </form>
 </body>
 </html>

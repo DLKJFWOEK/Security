@@ -21,16 +21,18 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true 
-#  mvc:        
-#    view:
-#      prefix: /WEB-INF/
-#      suffix: .jsp
-#     static-path-pattern: /static/**
-  thymeleaf:
-    cache: false
-    check-template-location: true
-    enabled: true
-    prefix: classpath:/templates/
-    suffix: .html
+
+
+file:
+  upload-dir: static/uploads/
+
+
+
+thymeleaf:
+  cache: false
+  check-template-location: true
+  enabled: true
+  prefix: classpath:/templates/
+  suffix: .html
 #    view-names: /*
-   
+  

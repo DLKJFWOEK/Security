@@ -2,6 +2,7 @@ package edu.fisa.board.service;
 
 import java.util.List;
 
+
 import edu.fisa.board.entity.BoardPost;
 
 public interface BoardPostService {
@@ -15,5 +16,4 @@ public interface BoardPostService {
     void updatePost(BoardPost post);
     
     void deletePostById(Long postId);
-    
 }
