@@ -1,12 +1,16 @@
 package edu.fisa.board.controller;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,12 +29,12 @@ import edu.fisa.board.service.BoardPostService;
 @RequestMapping("/board")
 public class BoardController {
 	
-	private final BoardPostService postService;
+	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
+	private final BoardPostService postService;
 	
 	@Value("${file.upload-dir}")
 	private String uploadDir;
-
 	
     public BoardController(BoardPostService postService) {
         this.postService = postService;
@@ -105,42 +109,50 @@ public class BoardController {
         List<BoardPost> posts = postService.getAllPosts();
         model.addAttribute("posts", posts);
         
-        return "redirect:/board/list"; // 삭제 후에 "board/list" 페이지로 redirect
+        return "redirect:/board/list"; 
     }
     
-    @GetMapping("/uploadfile") // Handler for showing upload file form
+    @GetMapping("/uploadfile") 
     public String showUploadForm() {
-        return "board/uploadfile"; // Renders uploadfile.html
+        return "board/uploadfile"; 
     }
     
-    @PostMapping("/upload") // Handler for file upload
+    @PostMapping("/upload") 
     public String handleFileUpload(@RequestParam("file") MultipartFile file, Model model) {
     	
     	if (!file.isEmpty()) {
             try {
             	
                 byte[] bytes = file.getBytes();
-                Path path = Paths.get(uploadDir + file.getOriginalFilename());
+                
+             
+                String encodedFileName = URLEncoder.encode(file.getOriginalFilename(), StandardCharsets.UTF_8);
+                Path path = Paths.get(uploadDir, encodedFileName);
                 Files.write(path, bytes);
                 
-                // Add file information to model for display in upload.html
-                model.addAttribute("fileName", file.getOriginalFilename());
+                logger.debug("Uploaded file name: {}", encodedFileName);
+                logger.debug("File size: {} bytes", file.getSize());
+                logger.debug("File type: {}", file.getContentType());
+                logger.debug("Uploaded temporary file name: {}", encodedFileName);
+
+                
+                model.addAttribute("fileName", encodedFileName);
                 model.addAttribute("fileType", file.getContentType());
                 model.addAttribute("fileSize", file.getSize());
-                model.addAttribute("tempFileName", file.getOriginalFilename());
+                model.addAttribute("tempFileName", encodedFileName);
                 
-                // You can also add other attributes or perform additional logic here
-                System.out.println("File information added to model successfully.");
                 
+
             } catch (IOException e) {
+            	logger.error("Error occurred during file upload", e);
                 e.printStackTrace();
             }
         }
-        return "redirect:/board/upload";
+        return "/board/upload";
     }
     
-    @GetMapping("/upload") // Handler for showing upload status
+    @GetMapping("/upload") 
     public String showUploadStatus(Model model) {
-    	return "board/upload"; // Renders upload.html
+    	return "board/upload"; 
     }
 }

@@ -21,10 +21,11 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true 
-
+  thymeleaf:
+      cache: false
 
 file:
-  upload-dir: static/uploads/
+  upload-dir: C:\Users\user\Desktop\우리fisa 강의내용\프로젝트 모음\bulletin_board\Bulletin_board\src\main\resources\static\uploads
 
 
 
@@ -35,4 +36,13 @@ thymeleaf:
   prefix: classpath:/templates/
   suffix: .html
 #    view-names: /*
-  
+
+logging:
+  level:
+    root: info  # 루트 로그 레벨을 info로 설정
+    edu.fisa.board.controller: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"  # 콘솔에 출력할 로그 패턴 설정
+  file:
+    name: myapp.log  # 로그 파일 이름 설정
+    path: /var/log/myapp  # 로그 파일 경로 설정

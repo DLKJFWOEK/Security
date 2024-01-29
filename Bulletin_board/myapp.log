@@ -1,0 +1,95 @@
+2024-01-29T17:16:42.479+09:00  INFO 39368 --- [restartedMain] edu.fisa.board.BoardApplication          : Starting BoardApplication using Java 17.0.9 with PID 39368 (C:\Users\user\Desktop\우리fisa 강의내용\프로젝트 모음\bulletin_board\Bulletin_board\target\classes started by user in C:\Users\user\Desktop\우리fisa 강의내용\프로젝트 모음\bulletin_board\Bulletin_board)
+2024-01-29T17:16:42.484+09:00  INFO 39368 --- [restartedMain] edu.fisa.board.BoardApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-01-29T17:16:42.680+09:00  INFO 39368 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-29T17:16:42.688+09:00  INFO 39368 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 1 JPA repository interface.
+2024-01-29T17:16:42.758+09:00  INFO 39368 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-01-29T17:16:42.759+09:00  INFO 39368 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-01-29T17:16:42.759+09:00  INFO 39368 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-01-29T17:16:42.777+09:00  INFO 39368 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/board]  : Initializing Spring embedded WebApplicationContext
+2024-01-29T17:16:42.777+09:00  INFO 39368 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 290 ms
+2024-01-29T17:16:42.800+09:00  INFO 39368 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-29T17:16:42.802+09:00  INFO 39368 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-01-29T17:16:42.805+09:00  INFO 39368 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-01-29T17:16:42.806+09:00  INFO 39368 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-01-29T17:16:42.811+09:00  INFO 39368 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1b18ef05
+2024-01-29T17:16:42.811+09:00  INFO 39368 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-01-29T17:16:42.811+09:00  WARN 39368 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-01-29T17:16:42.811+09:00  WARN 39368 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-01-29T17:16:42.832+09:00  INFO 39368 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-01-29T17:16:42.837+09:00  INFO 39368 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-29T17:16:42.882+09:00  WARN 39368 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-29T17:16:42.990+09:00  INFO 39368 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-01-29T17:16:43.004+09:00  INFO 39368 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path '/board'
+2024-01-29T17:16:43.009+09:00  INFO 39368 --- [restartedMain] edu.fisa.board.BoardApplication          : Started BoardApplication in 0.559 seconds (process running for 480.052)
+2024-01-29T17:16:43.012+09:00  INFO 39368 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-01-29T17:22:54.730+09:00  INFO 39368 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-01-29T17:22:54.758+09:00  INFO 39368 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-29T17:22:54.760+09:00  INFO 39368 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-01-29T17:22:54.765+09:00  INFO 39368 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-01-29T17:22:54.861+09:00  INFO 39368 --- [restartedMain] edu.fisa.board.BoardApplication          : Starting BoardApplication using Java 17.0.9 with PID 39368 (C:\Users\user\Desktop\우리fisa 강의내용\프로젝트 모음\bulletin_board\Bulletin_board\target\classes started by user in C:\Users\user\Desktop\우리fisa 강의내용\프로젝트 모음\bulletin_board\Bulletin_board)
+2024-01-29T17:22:54.861+09:00  INFO 39368 --- [restartedMain] edu.fisa.board.BoardApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-01-29T17:22:55.004+09:00  INFO 39368 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-29T17:22:55.021+09:00  INFO 39368 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 1 JPA repository interface.
+2024-01-29T17:22:55.091+09:00  INFO 39368 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-01-29T17:22:55.092+09:00  INFO 39368 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-01-29T17:22:55.092+09:00  INFO 39368 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-01-29T17:22:55.111+09:00  INFO 39368 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/board]  : Initializing Spring embedded WebApplicationContext
+2024-01-29T17:22:55.111+09:00  INFO 39368 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 248 ms
+2024-01-29T17:22:55.134+09:00  INFO 39368 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-29T17:22:55.136+09:00  INFO 39368 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-01-29T17:22:55.141+09:00  INFO 39368 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-01-29T17:22:55.142+09:00  INFO 39368 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-01-29T17:22:55.148+09:00  INFO 39368 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@45d3183d
+2024-01-29T17:22:55.148+09:00  INFO 39368 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-01-29T17:22:55.148+09:00  WARN 39368 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-01-29T17:22:55.148+09:00  WARN 39368 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-01-29T17:22:55.167+09:00  INFO 39368 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-01-29T17:22:55.176+09:00  INFO 39368 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-29T17:22:55.226+09:00  WARN 39368 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-29T17:22:55.304+09:00  INFO 39368 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-01-29T17:22:55.317+09:00  INFO 39368 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path '/board'
+2024-01-29T17:22:55.321+09:00  INFO 39368 --- [restartedMain] edu.fisa.board.BoardApplication          : Started BoardApplication in 0.5 seconds (process running for 852.364)
+2024-01-29T17:22:55.323+09:00  INFO 39368 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-01-29T17:22:57.023+09:00  INFO 39368 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/board]  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-29T17:22:57.023+09:00  INFO 39368 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-29T17:22:57.026+09:00  INFO 39368 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-01-29T17:23:09.375+09:00 DEBUG 39368 --- [http-nio-80-exec-2] e.fisa.board.controller.BoardController  : Uploaded file name: afafefwewfafefwfwefaefafeawf.png
+2024-01-29T17:23:09.375+09:00 DEBUG 39368 --- [http-nio-80-exec-2] e.fisa.board.controller.BoardController  : File size: 53462 bytes
+2024-01-29T17:23:09.376+09:00 DEBUG 39368 --- [http-nio-80-exec-2] e.fisa.board.controller.BoardController  : File type: image/png
+2024-01-29T17:23:09.376+09:00 DEBUG 39368 --- [http-nio-80-exec-2] e.fisa.board.controller.BoardController  : Uploaded temporary file name: afafefwewfafefwfwefaefafeawf.png
+2024-01-29T17:42:11.401+09:00 DEBUG 39368 --- [http-nio-80-exec-3] e.fisa.board.controller.BoardController  : Uploaded file name: jjjjjjjjjjj.png
+2024-01-29T17:42:11.401+09:00 DEBUG 39368 --- [http-nio-80-exec-3] e.fisa.board.controller.BoardController  : File size: 46469 bytes
+2024-01-29T17:42:11.401+09:00 DEBUG 39368 --- [http-nio-80-exec-3] e.fisa.board.controller.BoardController  : File type: image/png
+2024-01-29T17:42:11.401+09:00 DEBUG 39368 --- [http-nio-80-exec-3] e.fisa.board.controller.BoardController  : Uploaded temporary file name: jjjjjjjjjjj.png
+2024-01-29T17:42:54.600+09:00  INFO 39368 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 3 class path changes (2 additions, 0 deletions, 1 modification)
+2024-01-29T17:42:54.620+09:00  INFO 39368 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-29T17:42:54.620+09:00  INFO 39368 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-01-29T17:42:54.622+09:00  INFO 39368 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-01-29T17:42:54.697+09:00  INFO 39368 --- [restartedMain] edu.fisa.board.BoardApplication          : Starting BoardApplication using Java 17.0.9 with PID 39368 (C:\Users\user\Desktop\우리fisa 강의내용\프로젝트 모음\bulletin_board\Bulletin_board\target\classes started by user in C:\Users\user\Desktop\우리fisa 강의내용\프로젝트 모음\bulletin_board\Bulletin_board)
+2024-01-29T17:42:54.698+09:00  INFO 39368 --- [restartedMain] edu.fisa.board.BoardApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-01-29T17:42:54.865+09:00  INFO 39368 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-29T17:42:54.874+09:00  INFO 39368 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interface.
+2024-01-29T17:42:55.023+09:00  INFO 39368 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-01-29T17:42:55.024+09:00  INFO 39368 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-01-29T17:42:55.025+09:00  INFO 39368 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-01-29T17:42:55.050+09:00  INFO 39368 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/board]  : Initializing Spring embedded WebApplicationContext
+2024-01-29T17:42:55.050+09:00  INFO 39368 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 351 ms
+2024-01-29T17:42:55.079+09:00  INFO 39368 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-29T17:42:55.083+09:00  INFO 39368 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-01-29T17:42:55.087+09:00  INFO 39368 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-01-29T17:42:55.088+09:00  INFO 39368 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2024-01-29T17:42:55.095+09:00  INFO 39368 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3b505508
+2024-01-29T17:42:55.095+09:00  INFO 39368 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2024-01-29T17:42:55.096+09:00  WARN 39368 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-01-29T17:42:55.096+09:00  WARN 39368 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-01-29T17:42:55.118+09:00  INFO 39368 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-01-29T17:42:55.125+09:00  INFO 39368 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-29T17:42:55.189+09:00  WARN 39368 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-29T17:42:55.278+09:00  INFO 39368 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-01-29T17:42:55.287+09:00  INFO 39368 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path '/board'
+2024-01-29T17:42:55.294+09:00  INFO 39368 --- [restartedMain] edu.fisa.board.BoardApplication          : Started BoardApplication in 0.622 seconds (process running for 2052.337)
+2024-01-29T17:42:55.295+09:00  INFO 39368 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-01-29T17:46:39.777+09:00  INFO 39368 --- [RMI TCP Connection(62)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-01-29T17:46:39.797+09:00  INFO 39368 --- [RMI TCP Connection(62)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-29T17:46:39.797+09:00  INFO 39368 --- [RMI TCP Connection(62)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2024-01-29T17:46:39.801+09:00  INFO 39368 --- [RMI TCP Connection(62)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.

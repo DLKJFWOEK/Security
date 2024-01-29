@@ -9,9 +9,9 @@
     <p>파일이 성공적으로 업로드되었습니다.</p>
     <ul>
         <li><strong>파일명:</strong> <span th:text="${fileName}"></span></li>
-        <!-- <li><strong>파일 타입:</strong> <span th:text="${fileInfo.fileType}"></span></li>
-        <li><strong>파일 크기:</strong> <span th:text="${fileInfo.fileSize}"></span> bytes</li>
-        <li><strong>임시 파일명:</strong> <span th:text="${fileInfo.tempFileName}"></span></li> -->
+        <li><strong>파일 타입:</strong> <span th:text="${fileType}"></span></li>
+        <li><strong>파일 크기:</strong> <span th:text="${fileSize}"></span> bytes</li>
+        <li><strong>임시 파일명:</strong> <span th:text="${tempFileName}"></span></li>
     </ul>
     <a th:href="@{/board/uploadfile}">첨부파일 다시선택</a>
 </body>
