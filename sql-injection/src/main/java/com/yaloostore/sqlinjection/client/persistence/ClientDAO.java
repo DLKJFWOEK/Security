@@ -31,9 +31,9 @@ public class ClientDAO {
 
             con = DBUtil.getConnection();
 
-            String query = "SELECT * FROM client WHERE login_id = '" + loginId + "'  AND password = '" + pwd+ "'";
-            stmt = con.createStatement();
+            String query = "SELECT * FROM client WHERE login_id = '" + loginId + "' AND password = '" + pwd +"'";
 
+            stmt = con.createStatement();
 
 
             ResultSet resultSet = stmt.executeQuery(query);
@@ -61,7 +61,7 @@ public class ClientDAO {
     /*
     * sql injection 방어를 위한 preparedStatement를 사용한 메서드입니다.
     * */
-    public ClientDTO findClientByLoginId_pre(String loginId) {
+    public ClientDTO findClientByLoginId_pre(String loginId, String pwd) {
 
         ClientDTO client = null;
 
@@ -69,12 +69,12 @@ public class ClientDAO {
             con = DBUtil.getConnection();
 
             // SQL Injection 방어를 위해 PreparedStatement 사용
-            String query = "SELECT * FROM clients WHERE login_id = ?";
+            String query = "SELECT * FROM client WHERE login_id = ? AND password = ?";
             pstmt = con.prepareStatement(query);
 
             // ? 위치에 값 매핑
             pstmt.setString(1, loginId);
-
+            pstmt.setString(2, pwd);
             ResultSet resultSet = pstmt.executeQuery();
 
             if (resultSet.next()) {
@@ -82,7 +82,7 @@ public class ClientDAO {
                 client = new ClientDTO();
                 client.setClientId(resultSet.getLong("client_id"));
                 client.setLoginId(resultSet.getString("login_id"));
-                client.setPwd(resultSet.getString("pwd"));
+                client.setPwd(resultSet.getString("password"));
             }
 
         } catch (SQLException e) {

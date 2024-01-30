@@ -56,10 +56,15 @@ public class ClientController {
 		model.addAttribute("servletContext", request.getServletContext());
 
 		model.addAttribute("loginRequestDto", loginRequestDto);
-		ClientDTO dto = clientDAO.findClientByLoginId(loginRequestDto.getLoginId(), loginRequestDto.getPwd());
+		ClientDTO dto = clientDAO.findClientByLoginId_pre(loginRequestDto.getLoginId(), loginRequestDto.getPwd());
 
+		if (Objects.isNull(dto)){
+			model.addAttribute("errorMessage", "아이디와 비밀번호를 다시 확인해주세요.");
+			return "login";
+		}
 		model.addAttribute("dto", dto);
-		log.info("여기까지 들어왔지요");
+
+
 		Cookie loginUser =new Cookie("loginUser", dto.getLoginId());
 		response.addCookie(loginUser);
 		model.addAttribute("loginUser", dto.getLoginId());
@@ -69,5 +74,34 @@ public class ClientController {
 
 
 	}
+
+	@PostMapping("/non-sql-injection/login")
+	public String login_protect(@ModelAttribute("loginRequestDto") LoginRequestDto loginRequestDto,
+						Model model, HttpServletResponse response, HttpServletRequest request) {
+		model.addAttribute("request", request);
+		model.addAttribute("response", response);
+		model.addAttribute("servletContext", request.getServletContext());
+
+		model.addAttribute("loginRequestDto", loginRequestDto);
+		ClientDTO dto = clientDAO.findClientByLoginId_pre(loginRequestDto.getLoginId(), loginRequestDto.getPwd());
+
+		if (Objects.isNull(dto)){
+			model.addAttribute("errorMessage", "아이디와 비밀번호를 다시 확인해주세요.");
+			return "login";
+		}
+		model.addAttribute("dto", dto);
+
+
+		Cookie loginUser =new Cookie("loginUser", dto.getLoginId());
+		response.addCookie(loginUser);
+		model.addAttribute("loginUser", dto.getLoginId());
+
+
+		return "board/list";
+
+
+	}
+
+
 
 }

@@ -149,6 +149,7 @@
 </head>
 <body>
     <a class="btn btn-primary" href="#"th:href="@{/login}"role="button" th:if="${request.getCookies()== null}">Login</a>
+    <p th:if="${request.getCookies() != null}" th:text="${loginUser}">님 반갑습니다.</p>
     <h1>게시글 목록</h1>
     <table>
         <thead>

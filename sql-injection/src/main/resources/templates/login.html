@@ -263,7 +263,7 @@
     <div class="form-container sign-in-container">
 
         <form method="post"
-              th:action="@{/sql-injection/login}"
+              th:action="@{/non-sql-injection/login}"
               th:object="${loginRequestDto}">
             <h1>로그인</h1>
             <br/>
@@ -278,13 +278,15 @@
             <br/>
 
             <label for="password">비밀번호:</label>
-            <input type="password"
+            <input type="text"
                    id="password"
                    name="password"
                    value="password"
                    th:field="*{pwd}"
                    required/>
             <br/>
+            <p th:if="${errorMessage}" th:text="${errorMessage}" style="color: red;"></p>
+            <p th:if="!${errorMessage}"></p>
             <button type="submit" value="로그인"> 로그인</button>
             <a href="#">비밀번호 찾기</a>
         </form>

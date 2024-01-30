@@ -31,7 +31,7 @@ public class ClientRestController {
     @PostMapping("/pre-login")
     public ResponseEntity<ClientDTO> login_pre(@RequestBody ClientDTO clientDTO){
 
-        ClientDTO response = dao.findClientByLoginId_pre(clientDTO.getLoginId());
+        ClientDTO response = dao.findClientByLoginId_pre(clientDTO.getLoginId(), clientDTO.getPwd());
 
         return ResponseEntity.ok(response);
 
