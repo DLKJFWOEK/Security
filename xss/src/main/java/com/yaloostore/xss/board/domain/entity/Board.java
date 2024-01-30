@@ -3,6 +3,7 @@ package com.yaloostore.xss.board.domain.entity;
 import java.time.LocalDate;
 
 import com.yaloostore.xss.board.domain.dto.BoardDTO;
+import com.yaloostore.xss.board.domain.dto.WriteRequestDTO;
 import com.yaloostore.xss.client.domain.entity.Client;
 import jakarta.persistence.*;
 import lombok.*;
@@ -46,6 +47,14 @@ public class Board {
                 .client(client)
                 .title(boardDTO.getTitle())
                 .content(boardDTO.getContent())
+                .build();
+
+    }
+    public static Board createBoardPost(WriteRequestDTO dto, Client client){
+        return Board.builder()
+                .client(client)
+                .title(dto.getTitle())
+                .content(dto.getContent())
                 .build();
 
     }

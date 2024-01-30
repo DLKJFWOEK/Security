@@ -9,7 +9,6 @@ import lombok.Getter;
 @Getter
 public class Client {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long clientId;

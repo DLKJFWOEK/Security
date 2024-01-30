@@ -2,6 +2,7 @@ package com.yaloostore.xss.board.service.impl;
 
 import com.yaloostore.xss.board.domain.dto.BoardDTO;
 import com.yaloostore.xss.board.domain.dto.UpdateBoardDTO;
+import com.yaloostore.xss.board.domain.dto.WriteRequestDTO;
 import com.yaloostore.xss.board.domain.entity.Board;
 import com.yaloostore.xss.board.persistence.BoardRepository;
 import com.yaloostore.xss.board.service.BoardService;
@@ -50,6 +51,25 @@ public class BoardServiceImpl implements BoardService {
 
 
     }
+
+    @Override
+    public BoardDTO writePost(WriteRequestDTO dto, String loginId) {
+
+        Optional<Client> op = clientRepository.findByLoginId(loginId);
+        Client client = null;
+
+        if (op.isPresent()){
+            client = op.get();
+
+            Board boardPost = Board.createBoardPost(dto, client);
+            boardRepository.save(boardPost);
+
+            return BoardDTO.fromEntity(boardPost);
+        }
+
+        return null;
+    }
+
 
     @Override
     public void updatePost(UpdateBoardDTO dto) {
