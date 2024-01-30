@@ -33,6 +33,7 @@ public class LoginController {
         model.addAttribute("request", request);
         model.addAttribute("response", response);
         model.addAttribute("servletContext", request.getServletContext());
+        model.addAttribute("loginRequestDto", new LoginRequestDto());
 
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
@@ -43,7 +44,6 @@ public class LoginController {
                 }
             }
         }
-        model.addAttribute("loginRequestDto", new LoginRequestDto());
         return "login";
     }
 
@@ -54,7 +54,7 @@ public class LoginController {
         model.addAttribute("response", response);
         model.addAttribute("servletContext", request.getServletContext());
         model.addAttribute("loginRequestDto", loginRequestDto);
-
+        log.info(loginRequestDto.getLoginId());
         ClientDTO dto = clientService.isAuthentication(loginRequestDto);
 
         if (Objects.isNull(dto)){
@@ -77,25 +77,9 @@ public class LoginController {
         response.addCookie(clientId);
 
 
-        return "board/list";
+        return "redirect:/boards/lists";
 
     }
 
-    @GetMapping("/detail/{id}")
-    public String boardDetail(@PathVariable Long id,
-                              Model model,
-                              HttpServletResponse response,
-                              HttpServletRequest request) {
 
-
-        model.addAttribute("request", request);
-        model.addAttribute("response", response);
-        model.addAttribute("servletContext", request.getServletContext());
-
-
-        
-
-
-        return "board/detail";
-    }
 }

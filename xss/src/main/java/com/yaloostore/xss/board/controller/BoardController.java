@@ -12,10 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,6 +85,7 @@ public class BoardController {
         return "redirect:/boards/lists";
     }
 
+
     @GetMapping("/lists")
     public String boardList(Model model, HttpServletRequest request, HttpServletResponse response){
 
@@ -110,6 +108,23 @@ public class BoardController {
 
     }
 
+    @GetMapping("/detail/{id}")
+    public String boardDetail(@PathVariable Long id,
+                              Model model,
+                              HttpServletResponse response,
+                              HttpServletRequest request) {
 
+
+        model.addAttribute("request", request);
+        model.addAttribute("response", response);
+        model.addAttribute("servletContext", request.getServletContext());
+
+
+        Board board = boardService.getBoardById(id);
+
+        model.addAttribute("post", board);
+
+        return "board/detail";
+    }
 
 }

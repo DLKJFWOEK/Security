@@ -6,12 +6,14 @@ import com.yaloostore.xss.client.domain.entity.Client;
 import com.yaloostore.xss.client.exception.NotFoundClientException;
 import com.yaloostore.xss.client.persistence.ClientRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ClientService {
 
     private final ClientRepository clientRepository;
@@ -33,7 +35,7 @@ public class ClientService {
     public ClientDTO isAuthentication(LoginRequestDto loginRequestDto){
 
         Optional<Client> op = clientRepository.findByLoginId(loginRequestDto.getLoginId());
-
+        log.info(op.get().getLoginId());
         Client client =null;
 
         if (op.isPresent()){
