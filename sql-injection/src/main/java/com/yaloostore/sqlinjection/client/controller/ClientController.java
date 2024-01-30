@@ -1,6 +1,7 @@
 package com.yaloostore.sqlinjection.client.controller;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,13 +31,17 @@ public class ClientController {
 		model.addAttribute("request", request);
 		model.addAttribute("response", response);
 		model.addAttribute("servletContext", request.getServletContext());
+
+
 		Cookie[] cookies = request.getCookies();
-		//만약 로그인에 성공한 유저라면 쿠키값이 있기 때문에 다른 곳으로 보낸다.
-		if (!Objects.isNull(cookies[0])){
-			Cookie loginUser = cookies[0];
-			model.addAttribute("loginUser", loginUser.getValue());
-			return "board/list";
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("loginUser")) {
+					return "board/list";
+				}
+			}
 		}
+
 
 		model.addAttribute("loginRequestDto", new LoginRequestDto());
 
@@ -51,7 +56,7 @@ public class ClientController {
 		model.addAttribute("servletContext", request.getServletContext());
 
 		model.addAttribute("loginRequestDto", loginRequestDto);
-		ClientDTO dto = clientDAO.findClientByLoginId(loginRequestDto.getLoginId());
+		ClientDTO dto = clientDAO.findClientByLoginId(loginRequestDto.getLoginId(), loginRequestDto.getPwd());
 
 		model.addAttribute("dto", dto);
 		log.info("여기까지 들어왔지요");

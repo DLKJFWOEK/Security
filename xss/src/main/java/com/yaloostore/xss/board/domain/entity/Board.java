@@ -33,13 +33,11 @@ public class Board {
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDate createdDate;
 
 
     @LastModifiedDate
     @Column(name = "updated_at", updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDate updatedDate;
 
 

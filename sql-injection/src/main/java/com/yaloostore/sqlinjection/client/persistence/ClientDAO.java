@@ -23,7 +23,7 @@ public class ClientDAO {
     * 이 작업은 statement를 이용해서 진행하고 있고 sql injection 방어를 위해서는 prepareStatement 사용,
     * JPA, spring security 등을 사용해 방어를 할수 있습니다.
     * */
-    public ClientDTO findClientByLoginId(String loginId){
+    public ClientDTO findClientByLoginId(String loginId, String pwd){
 
         ClientDTO client = null;
 
@@ -31,7 +31,7 @@ public class ClientDAO {
 
             con = DBUtil.getConnection();
 
-            String query = "SELECT * FROM client WHERE login_id = '" + loginId + "'";
+            String query = "SELECT * FROM client WHERE login_id = '" + loginId + "'  AND password = '" + pwd+ "'";
             stmt = con.createStatement();
 
 

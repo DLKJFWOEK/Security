@@ -148,7 +148,7 @@
 </style>
 </head>
 <body>
-    <a class="btn btn-primary" href="#"th:href="@{/login}"role="button" th:if="${#request.getCookies()== null}">Login</a>
+    <a class="btn btn-primary" href="#"th:href="@{/login}"role="button" th:if="${request.getCookies()== null}">Login</a>
     <h1>게시글 목록</h1>
     <table>
         <thead>

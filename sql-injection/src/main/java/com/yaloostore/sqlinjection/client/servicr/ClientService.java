@@ -16,7 +16,7 @@ public class ClientService {
 
 
     public boolean isAuthenticationClient_pre(String loginId,String pwd){
-        ClientDTO dto = dao.findClientByLoginId(loginId);
+        ClientDTO dto = dao.findClientByLoginId(loginId, pwd);
 
         return dto.getLoginId().equals(loginId) && dto.getPwd().equals(pwd);
     }

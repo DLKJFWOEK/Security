@@ -22,7 +22,7 @@ public class ClientRestController {
     @PostMapping("/login")
     public ResponseEntity<ClientDTO> login(@RequestBody ClientDTO clientDTO){
 
-        ClientDTO response = dao.findClientByLoginId(clientDTO.getLoginId());
+        ClientDTO response = dao.findClientByLoginId(clientDTO.getLoginId(), clientDTO.getPwd());
 
         return ResponseEntity.ok(response);
 
