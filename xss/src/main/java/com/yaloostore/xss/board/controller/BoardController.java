@@ -58,7 +58,7 @@ public class BoardController {
     }
 
     @PostMapping("/write")
-    public String write(@ModelAttribute WriteRequestDTO writeRequestDTO,
+    public String write(@ModelAttribute("writeRequestDTO") WriteRequestDTO writeRequestDTO,
                         Model model,
                         HttpServletRequest request,
                         HttpServletResponse response){
@@ -66,6 +66,7 @@ public class BoardController {
         model.addAttribute("request", request);
         model.addAttribute("response", response);
         model.addAttribute("servletContext", request.getServletContext());
+        model.addAttribute("writeRequestDTO", writeRequestDTO);
 
 
         String loginId = null;
@@ -78,10 +79,13 @@ public class BoardController {
             }
         }
 
+        log.info(loginId);
+
         BoardDTO boardDTO = boardService.writePost(writeRequestDTO, loginId);
+
         log.info(boardDTO.getContent());
 
-        return "redirect:/boards/list";
+        return "redirect:/boards/lists";
     }
 
     @GetMapping("/lists")

@@ -7,12 +7,14 @@ import com.yaloostore.xss.client.service.ClientService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Objects;
@@ -77,6 +79,23 @@ public class LoginController {
 
         return "board/list";
 
+    }
 
+    @GetMapping("/detail/{id}")
+    public String boardDetail(@PathVariable Long id,
+                              Model model,
+                              HttpServletResponse response,
+                              HttpServletRequest request) {
+
+
+        model.addAttribute("request", request);
+        model.addAttribute("response", response);
+        model.addAttribute("servletContext", request.getServletContext());
+
+
+        
+
+
+        return "board/detail";
     }
 }

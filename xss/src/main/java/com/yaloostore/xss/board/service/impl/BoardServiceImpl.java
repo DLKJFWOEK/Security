@@ -9,6 +9,7 @@ import com.yaloostore.xss.board.service.BoardService;
 import com.yaloostore.xss.client.domain.entity.Client;
 import com.yaloostore.xss.client.persistence.ClientRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class BoardServiceImpl implements BoardService {
 
     private final BoardRepository boardRepository;
@@ -56,12 +58,16 @@ public class BoardServiceImpl implements BoardService {
     public BoardDTO writePost(WriteRequestDTO dto, String loginId) {
 
         Optional<Client> op = clientRepository.findByLoginId(loginId);
+        log.info(op.get().getLoginId());
+
         Client client = null;
+
 
         if (op.isPresent()){
             client = op.get();
 
             Board boardPost = Board.createBoardPost(dto, client);
+            log.info("board Service {}", boardPost.getContent());
             boardRepository.save(boardPost);
 
             return BoardDTO.fromEntity(boardPost);
