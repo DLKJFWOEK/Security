@@ -67,7 +67,6 @@ public class BoardServiceImpl implements BoardService {
             client = op.get();
 
             Board boardPost = Board.createBoardPost(dto, client);
-            log.info("board Service {}", boardPost.getContent());
             boardRepository.save(boardPost);
 
             return BoardDTO.fromEntity(boardPost);

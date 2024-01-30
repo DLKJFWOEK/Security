@@ -77,6 +77,8 @@ public class BoardController {
         }
 
         log.info(loginId);
+        log.info(writeRequestDTO.getTitle());
+        log.info(writeRequestDTO.getContent());
 
         BoardDTO boardDTO = boardService.writePost(writeRequestDTO, loginId);
 
