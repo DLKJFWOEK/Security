@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Gowun Dodum', sans-serif;
+    }
+
+    body {
+        background: #f6f5f7;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    /* CSS */
+    .button-23 {
+        background-color: #FFFFFF;
+        border: 1px solid #222222;
+        border-radius: 8px;
+        box-sizing: border-box;
+        color: #222222;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 18px;
+        line-height: 20px;
+        margin: 0;
+        outline: none;
+        padding: 10px 20px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        touch-action: manipulation;
+        transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .button-23:focus-visible {
+        box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+        transition: box-shadow .2s;
+    }
+
+    .button-23:active {
+        background-color: #F7F7F7;
+        border-color: #000000;
+        transform: scale(.96);
+    }
+
+    .button-23:disabled {
+        border-color: #DDDDDD;
+        color: #DDDDDD;
+        cursor: not-allowed;
+        opacity: 1;
+    }
+
+    input{
+        width: 250px;
+        padding: 2px 0 2px 5px;
+        margin-bottom: 10px;
+    }
+
+    textarea {
+        width: 250px;
+        padding: 2px 0 2px 5px;
+        margin-bottom: 10px;
+        resize: vertical;
+        min-height: 210px;
+    }
+
+    .buttons {
+        width: 250px;
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+    }
+
+    #hiddenform{
+        width: 250px;
+        height: 80px;
+        display: none;
+        border: 1px solid lightgrey;
+    }
+
+    #uploadBtn {
+        margin-left: 198px;
+        padding: 0 5px 0 5px;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+</style>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Write Post</title>
+</head>
+<body>
+<h1>게시글 작성</h1>
+
+<form method="post" enctype="multipart/form-data" th:object="${writeRequestDTO}" th:action="@{/boards/write}">
+    <!-- 게시글 작성 필드들 -->
+    <input type="text" id="nickname" th:placeholder="${loginId}" disabled/>
+    <br/>
+    <input type="text" id="title" th:field="*{title}" placeholder="제목" required/>
+    <br/>
+    <textarea id="content" th:field="*{content}" placeholder="내용" required></textarea>
+    <br/>
+
+    <!-- 파일 업로드 필드 -->
+    <input type="file" name="files" id="file"/>
+    <br/>
+
+    <!-- 게시글 작성 버튼 -->
+    <button class="button-23" type="submit">작성완료</button>
+    <button class="button-23"><a th:href="@{'/boards/lists'}">게시글 목록</a></button>
+</form>
+
+<!--<form method="post" enctype="multipart/form-data" th:object="${writeRequestDTO}" th:action="@{/boards/write}">-->
+<!--    <input type="text" id="nickname" th:text="${loginId}" placeholder="닉네임" disabled/>-->
+<!--    <br/>-->
+<!--    <input type="text" id="title" th:field="*{title}" placeholder="제목" required/>-->
+<!--    <br/>-->
+<!--    <textarea id="content" th:field="*{content}" placeholder="내용" required></textarea>-->
+<!--    <br/>-->
+<!--    <div class="buttons">-->
+<!--        <button class="button-23" type="submit">작성완료</button>-->
+<!--        <button class="button-23"><a th:href="@{'/boards/lists'}">게시글 목록</a></button>-->
+<!--    </div>-->
+<!--    <div class="buttons">-->
+<!--        <button class="button-23" id="upload" onclick="toggleUpload()">파일 업로드</button>-->
+<!--    </div>-->
+<!--    <div id="hiddenform" class="buttons">-->
+<!--        <input type="file" name="files" id="file"/>-->
+<!--        <spa type="hidden" id="chooseFileName"></spa>-->
+<!--        <button type="submit" id="uploadBtn" onclick="triggerFileInput()">업로드</button>-->
+<!--    </div>-->
+
+<!--</form>-->
+
+
+
+<script>
+    const uploadButton = document.getElementById('upload');
+    const fileUploadForm = document.getElementById('hiddenform');
+
+    function toggleUpload() {
+        if (fileUploadForm.style.display === 'none') {
+            fileUploadForm.style.display = 'block';
+            uploadButton.textContent = "파일 업로드 닫기"
+        } else {
+            fileUploadForm.style.display = 'none';
+            uploadButton.textContent = "파일 업로드"
+        }
+    }
+
+    function triggerFileInput() {
+        document.getElementById('file').click();
+    }
+
+    document.getElementById('file').addEventListener('change', function() {
+        if (this.files.length > 0) {
+            document.getElementById('chooseFileName').innerText = '선택된 파일:' + this.files[0].name;
+        }
+    });
+
+</script>
+</body>
+</html>

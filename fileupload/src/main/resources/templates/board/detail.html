@@ -81,7 +81,9 @@
         <p>작성일: <span th:text="${post.createdDate}"></span></p>
         <!--타임리프를 쓰면 이를 막아주는데 utext를 사용하면 xss가 가능해진다.-->
         <p><span th:text="${post.content}"></span></p>
-        <p><span id="postContent" th:utext="${post.content}"></span></p>
+        <p><span th:if="${file}" th:text="${file.getOriginFileName()+file.getContentType()}"></span></p>
+
+
 
     </div>
     <br/>
